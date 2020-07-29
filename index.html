@@ -34,6 +34,7 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8902272bc2.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
@@ -87,8 +88,10 @@
               <div class="card mb-4 shadow-sm">
                 <img class="card-img-top" :data-src="`holder.js/100px225?text=Day ${i+1}&size=30&theme=sky`" height="225" width="100%">
                 <div class="card-body">
-                  <p class="card-text text-center" v-if="!edit_mode">{{day}}</p>
-                  <input type="text" class="form-control" :value="day" v-if="edit_mode" v-on:change="saveDay(i, event.target.value)" required>
+                  <i class="far fa-copy" v-bind:id="i" v-bind:onclick="'copyToClipboard(' + i + ')'" data-toggle="tooltip" data-placement="top" title="Click để copy"></i>
+                  <p v-bind:id="'p-' + i" class="card-text text-center" v-if="!edit_mode">{{day}}</p>
+<!--                  <input type="text" class="form-control" :value="day" v-if="edit_mode" v-on:change="saveDay(i, event.target.value)" required>-->
+                  <textarea v-bind:id="'text-' + i" class="form-control" cols="30" rows="10" v-if="edit_mode" v-on:change="saveDay(i, event.target.value)" required>{{day}}</textarea>
                 </div>
               </div>
             </div>
@@ -96,6 +99,7 @@
         </div>
       </div>
     </main>
+
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">

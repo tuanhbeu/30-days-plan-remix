@@ -23,6 +23,15 @@
   max-width: 40rem;
 }
 
+.card-body .fa-copy {
+  position: absolute;
+  right: 4px;
+  top: 7px;
+  font-size: 22px;
+  color: #fff;
+  cursor: pointer;
+}
+
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
